@@ -15,13 +15,13 @@ async function main() {
   // await hre.run('compile');
 
   //compile
-  const JianTokenContract = await hre.ethers.getContractFactory("JianToken");
+  const JianTokenFactory = await hre.ethers.getContractFactory("JianToken");
   //deploy
-  const JianToken = await JianTokenContract.deploy(ethers.utils.parseEther("100.0"));
+  const JianTokenContract = await JianTokenFactory.deploy(ethers.utils.parseEther("100.0"));
 
-  await JianToken.deployed();
+  await JianTokenContract.deployed();
 
-  console.log("JianToken deployed to:", JianToken.address);
+  console.log("JianToken deployed to:", JianTokenContract.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
